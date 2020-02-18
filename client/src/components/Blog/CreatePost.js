@@ -119,25 +119,12 @@ const CreatePost = () => {
                   }}
                   config={{
                     autoParagraph: false,
-                    options: [
-                      {
-                        model: "paragraph",
-                        title: "Paragraph",
-                        class: "ck-heading_paragraph"
-                      },
-                      {
-                        model: "heading1",
-                        view: "h1",
-                        title: "Heading 1",
-                        class: "ck-heading_heading1"
-                      },
-                      {
-                        model: "heading2",
-                        view: "h2",
-                        title: "Heading 2",
-                        class: "ck-heading_heading2"
-                      }
-                    ]
+                    extraPlugins: "filebrowser",
+                    uploadPreset: "jasminecake",
+                    filebrowserUploadUrl:
+                      "https://api.cloudinary.com/v1_1/neupytech/image/upload/",
+                    uploadUrl:
+                      "https://api.cloudinary.com/v1_1/neupytech/image/upload/"
                   }}
                 />
 
