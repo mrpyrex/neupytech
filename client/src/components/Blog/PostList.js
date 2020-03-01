@@ -11,7 +11,7 @@ export class PostList extends Component {
   render() {
     return (
       <Container maxWidth="lg">
-        <Grid container spacing={1}>
+        <Grid container spacing={2}>
           <Grid item md={8} sm={12}>
             <h3>Latest Posts</h3>
             <Query query={GET_POSTS_QUERY}>

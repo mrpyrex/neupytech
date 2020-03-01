@@ -1,8 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
-// import red from "@material-ui/core/colors/red";
-// import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Container
+} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,16 +24,28 @@ const useStyles = makeStyles(theme => ({
 const Navbar = () => {
   const classes = useStyles();
   return (
-    <div>
-      <AppBar>
+    <AppBar>
+      <Container maxWidth="lg">
         <Toolbar>
           <Typography className={classes.title} variant="h6">
-            News
+            <Link to="/"> News</Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+
+          <Button color="inherit">
+            <Link to="/blog">Blog</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/about-us">About Us</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/our-works">Portfolio</Link>
+          </Button>
+          <Button color="inherit">
+            <Link to="/contact">Contact</Link>
+          </Button>
         </Toolbar>
-      </AppBar>
-    </div>
+      </Container>
+    </AppBar>
   );
 };
 
