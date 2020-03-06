@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import theme from "./theme";
 
 import "./App.css";
 
-import withRoot from "./withRoot";
 import Navbar from "./components/Shared/Navbar";
 import Footer from "./components/Shared/Footer";
 import Login from "./components/Auth/Login";
@@ -22,32 +24,35 @@ import Portfolio from "./pages/Portfolio";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/about-us" component={About} />
-        <Route path="/create-post" component={CreatePost} />
-        <Route exact path="/blog/:id" component={PostDetail} />
-        <Route exact path="/our-works" component={Portfolio} />
-        <Route path="/blog" component={PostList} />
-        <Route exact path="/services/web-dev-services" component={Webdev} />
-        <Route path="/services/mobile-app-services" component={Mobiledev} />
-        <Route
-          path="/services/digital-marketing-services"
-          component={Digitalmarket}
-        />
-        <Route
-          path="/services/social-media-marketing-services"
-          component={Socialmarket}
-        />
-      </Switch>
-      <Footer />
-    </Router>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/about-us" component={About} />
+          <Route path="/create-post" component={CreatePost} />
+          <Route exact path="/blog/:id" component={PostDetail} />
+          <Route exact path="/our-works" component={Portfolio} />
+          <Route path="/blog" component={PostList} />
+          <Route exact path="/services/web-dev-services" component={Webdev} />
+          <Route path="/services/mobile-app-services" component={Mobiledev} />
+          <Route
+            path="/services/digital-marketing-services"
+            component={Digitalmarket}
+          />
+          <Route
+            path="/services/social-media-marketing-services"
+            component={Socialmarket}
+          />
+        </Switch>
+        <Footer />
+      </Router>
+    </ThemeProvider>
   );
 }
 
-export default withRoot(App);
+export default App;

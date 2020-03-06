@@ -35,11 +35,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CreatePost = () => {
+const UpdatePost = ({ post }) => {
   const classes = useStyles();
   // const [open, setOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
   const [file, setFile] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -68,21 +68,23 @@ const CreatePost = () => {
     }
   };
 
-  const handleSubmit = async (event, createPost) => {
+  const handleSubmit = async (event, updatePost) => {
     event.preventDefault();
     setSubmitting(true);
     const uploadUrl = await handleImageUpload();
-    createPost({ variables: { title, content, thumb: uploadUrl } });
+    updatePost({
+      variables: { postId: post.id, title, content, thumb: uploadUrl }
+    });
   };
 
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Create A Post
+          Update Post
         </Typography>
         <Mutation
-          mutation={CREATE_POST_MUTATION}
+          mutation={UPDATE_POST_MUTATION}
           onCompleted={data => {
             setSubmitting(false);
             setTitle("");
@@ -90,12 +92,12 @@ const CreatePost = () => {
             setFile("");
           }}
         >
-          {(createPost, { loading, error }) => {
+          {(updatePost, { loading, error }) => {
             if (error) return <div>error!!!</div>;
             return (
               <form
                 className={classes.form}
-                onSubmit={event => handleSubmit(event, createPost)}
+                onSubmit={event => handleSubmit(event, updatePost)}
               >
                 <TextField
                   autoFocus
@@ -128,19 +130,6 @@ const CreatePost = () => {
                   }}
                 />
 
-                {/* <TextField
-                  multiline
-                  rows="5"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="content"
-                  label="Content"
-                  type="text"
-                  id="content"
-                  onChange={event => setContent(event.target.value)}
-                /> */}
-
                 <Input
                   type="file"
                   fullWidth
@@ -155,11 +144,9 @@ const CreatePost = () => {
                   variant="contained"
                   color="primary"
                   className={classes.submit}
-                  disabled={
-                    submitting || !title.trim() || !content.trim() || !file
-                  }
+                  disabled={submitting || !title || !content || !file}
                 >
-                  {loading ? "Submitting ..." : "Submit"}
+                  {loading ? "Updating ..." : "Update"}
                 </Button>
               </form>
             );
@@ -170,11 +157,16 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default UpdatePost;
 
-const CREATE_POST_MUTATION = gql`
-  mutation($title: String!, $content: String!, $thumb: String!) {
-    createPost(title: $title, content: $content, thumb: $thumb) {
+const UPDATE_POST_MUTATION = gql`
+  mutation($postId: Int!, $title: String, $content: String, $thumb: String) {
+    updatePost(
+      postId: $postId
+      title: $title
+      content: $content
+      thumb: $thumb
+    ) {
       post {
         id
         title

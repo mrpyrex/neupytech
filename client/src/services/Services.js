@@ -16,15 +16,14 @@ import mobiledev from "../img/mobiledev.svg";
 import email from "../img/email.svg";
 
 const useStyles = makeStyles({
-  // root: {
-  //   maxWidth: 345
-  // },
   media: {
     padding: 20,
     height: 140
   },
   titleText: {
-    margin: "auto"
+    textAlign: "center",
+    padding: 20,
+    margin: 20
   }
 });
 
@@ -32,15 +31,15 @@ const Services = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="lg">
-      <Typography className={classes.titleText} variant="h3">
-        Services
+      <Typography className={classes.titleText} variant="h2">
+        Our Services
       </Typography>
-      <div></div>
+      <div />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} lg={3}>
           <Card>
             <CardActionArea>
-              <img src={webdev} className={classes.media} />
+              <img src={webdev} className={classes.media} alt="#" />
 
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -62,7 +61,7 @@ const Services = () => {
         <Grid item xs={12} md={6} lg={3}>
           <Card>
             <CardActionArea>
-              <img src={mobiledev} className={classes.media} />
+              <img src={mobiledev} className={classes.media} alt="#" />
 
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -84,7 +83,7 @@ const Services = () => {
         <Grid item xs={12} md={6} lg={3}>
           <Card>
             <CardActionArea>
-              <img src={email} className={classes.media} />
+              <img src={email} className={classes.media} alt="#" />
 
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -108,7 +107,7 @@ const Services = () => {
         <Grid item xs={12} md={6} lg={3}>
           <Card>
             <CardActionArea>
-              <img src={bullhorn} className={classes.media} />
+              <img src={bullhorn} className={classes.media} alt="#" />
 
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">

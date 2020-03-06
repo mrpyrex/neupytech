@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { ApolloProvider } from "react-apollo";
-import ApolloClient from "apollo-boost";
+import { ApolloProvider, Query } from "react-apollo";
+import ApolloClient, { gql } from "apollo-boost";
 import * as serviceWorker from "./serviceWorker";
 
 const client = new ApolloClient({
@@ -26,6 +26,12 @@ const client = new ApolloClient({
     }
   }
 });
+
+export const IS_LOGGED_IN_QUERY = gql`
+  query {
+    isLoggedIn @client
+  }
+`;
 
 ReactDOM.render(
   <ApolloProvider client={client}>
