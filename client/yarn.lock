@@ -938,18 +938,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@ckeditor/ckeditor5-build-classic@^16.0.0":
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-16.0.0.tgz#9141e94ea6765eda4925aaf062448507410bbe70"
-  integrity sha512-gBfZqWg3hmCvhq6/wX5UJp4qwl6gB+NJPpOkya2Y3jWKA0HKf3UdlhIvaHq7dRaqhi4unmqaJZVEk5VpZ1vDOg==
-
-"@ckeditor/ckeditor5-react@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-2.1.0.tgz#f612546a5a328899a436d71b72ffd632600049e8"
-  integrity sha512-rlHjRKhwP9tNK0Yj2UJShL14mRfxLPgJ+Pv6zTv/Mvmd4wrwGnJf+5ybOAGK92S02hP1cXH+9km+PRO1b4V+ng==
-  dependencies:
-    prop-types "^15.6.1"
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -3034,6 +3022,21 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+ckeditor4-integrations-common@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ckeditor4-integrations-common/-/ckeditor4-integrations-common-0.2.0.tgz#994a83f94e14161fa8ee15e7f0edc8735b12d8f8"
+  integrity sha512-KkHztF0bkGOnTcifWFd55j5Y9SCR3uk12SGgS6L1mZNnBeIJFCcgTwZWEHtG2aDJF7aZob7cex1CShL+SrNuow==
+  dependencies:
+    load-script "^1.0.0"
+
+ckeditor4-react@^1.0.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/ckeditor4-react/-/ckeditor4-react-1.4.1.tgz#b5d6cdbcc7fc021c6cd4de880d4db3bdecb50174"
+  integrity sha512-2CA89wcmXOEmfLS47jFRJ1xFDEqg1q5oxnwiu33vrgk0ewxf0dgxfue4uthSjNUQ6M4pNu4rtIiIXZ5kUSojnA==
+  dependencies:
+    ckeditor4-integrations-common "^0.2.0"
+    prop-types "^15.6.2"
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -5325,9 +5328,9 @@ hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.2.0, hoist-non-react-
     react-is "^16.7.0"
 
 hosted-git-info@^2.1.4:
-  version "2.8.5"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.5.tgz#759cfcf2c4d156ade59b0b2dfabddc42a6b9c70c"
-  integrity sha512-kssjab8CvdXfcXMXVcvsXum4Hwdq9XGtRD3TteMEvEbq0LXyiNQr6AprqKqfeaDXze7SxWvRxdpwE6ku7ikLkg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hpack.js@^2.1.6:
   version "2.1.6"
